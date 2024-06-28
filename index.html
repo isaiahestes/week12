@@ -1,0 +1,30 @@
+<!-- Create a full CRUD application of your choice using an API or JSON Server.
+Use JQuery/AJAX to interact with the API. 
+Use a form to post new entities.
+Build a way for users to update or delete entities.
+Include a way to get entities from the API.
+Use Bootstrap and CSS to style your project. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="container">
+    <div id="new-hero" class="jumbotron">
+        <h2>New </h2>
+        <input type="text" id="new-hero-name" class="form-control" placeholder="Add Hero's Name"><br>
+        <input type="text" id="new-hero-power" class="form-control" placeholder="Add Hero's Power"><br>
+        <button id="create-new-hero" class="btn btn-success form-control">Add</button>
+
+    </div>
+    <br>
+    <div id="app"></div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

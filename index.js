@@ -61,7 +61,7 @@ class DOMManager{
                         <button class="btn btn-primary" onclick="DOMManager.editHero('${hero.id}')">Edit</button>
                         <button class="btn btn-danger" onclick="DOMManager.deleteHero('${hero.id}')">Delete</button>                        
                     </div>
-                    <div id="edit-hero"></div>
+                    <div id="edit-hero-${hero.id}"></div>
                 </div><br>`
             );
         }
@@ -74,19 +74,21 @@ class DOMManager{
         .then(heros => this.render(heros));
     }
     // this is the action that is tied to the edit button we collect the data that was edited.
+
     static editHero(id){
-        $('#edit-hero').prepend(
+        $('#edit-hero-'+id).empty();
+        $('#edit-hero-'+id).prepend(
             `<div>
-                <input type="text" id="name" value="${this.heros.find(hero => hero.id == id).name}">
-                <input type="text" id="power" value="${this.heros.find(hero => hero.id == id).power}">
+                <input type="text" id="name-${id}" value="${this.heros.find(hero => hero.id == id).name}">
+                <input type="text" id="power-${id}" value="${this.heros.find(hero => hero.id == id).power}">
                 <button class="btn btn-primary" onclick="DOMManager.updateHero('${id}')">Update</button>                
             </div>`
         );
     }
 // this is the method that is called in edithero which we use heroservices update then we rerendor the heros
     static updateHero(id){
-        let name = $('#name').val();
-        let power = $('#power').val();
+        let name = $('#name-'+id).val();
+        let power = $('#power-'+id).val();
         HeroService.updateHero(id, {name, power}).then(() =>{
             return HeroService.getAllHeros();
         })
